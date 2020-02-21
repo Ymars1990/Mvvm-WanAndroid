@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api project(':component')
+
+    // OkHttp
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpVersion"
+
+    // Retrofit
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+
+    // RxJava
+    api "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+
+}

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Wan</string>
+
+    <string name="copyright">Copyright © 2018-2020 Mars. All Rights Reserved</string>
+    <string name="skip">跳过</string>
+
+
+    <string name="home">首页</string>
+
+    <string name="forum">广场</string>
+    <string name="wechat_article">公众号</string>
+    <string name="navigation">导航</string>
+    <string name="classify_proj">项目分类</string>
+</resources>

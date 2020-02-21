@@ -1,0 +1,2 @@
+include ':app', ':common_utils', ':base', ':component', ':business', ':network'
+rootProject.name='Mvvm-WanAndroid'

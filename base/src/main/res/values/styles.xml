@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="TranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/app_theme_title_color</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/app_theme_title_color</item>
+        <item name="toolbarStyle">@style/MyToolbar</item>
+    </style>
+</resources>
