@@ -9,6 +9,7 @@ import com.mars.mvvm.common_utils.ViewOnClickerUtils
 
 abstract class BaseViewApdater<T : Any, VDB : ViewDataBinding, VH : BaseViewHolder<VDB>>(mCtx: Context, layoutId: Int, onItemClickCallBacker: RvOnClickCallBacker<T>?, dataList: ArrayList<T>?) :
     RecyclerView.Adapter<VH>() {
+    var TAG:String = this.javaClass.simpleName
     var mCtx: Context? = null
     var layoutId: Int
     var onItemClickCallBacker: RvOnClickCallBacker<T>? = null
