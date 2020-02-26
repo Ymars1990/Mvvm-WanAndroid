@@ -15,8 +15,10 @@ abstract class BaseFragment<Db : ViewDataBinding> : Fragment() {
 
     var db: Db? = null
     private var baseFragmentBinding: FragmentBaseBinding? = null
+    protected var parentCtx: Context? = null
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        parentCtx = context
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,9 +31,14 @@ abstract class BaseFragment<Db : ViewDataBinding> : Fragment() {
             baseFragmentBinding!!.contentFl,
             true
         )
+
+        return baseFragmentBinding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initData()
         doWork()
-        return baseFragmentBinding!!.root
+        super.onViewCreated(view, savedInstanceState)
     }
 
     /**
