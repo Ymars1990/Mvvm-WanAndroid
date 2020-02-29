@@ -2,18 +2,21 @@ package com.mars.mvvm.base.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.Window
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+
 import com.gyf.immersionbar.ktx.immersionBar
 import com.mars.mvvm.base.R
-import com.mars.mvvm.base.databinding.ActivityBaseBinding
 
-abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
 
-    protected var mDataBinding: VDB? = null
+abstract class BaseActivity : AppCompatActivity() {
+
     protected var mCtx: Context? = null
-    private var baseBinding: ActivityBaseBinding? = null
+
+    var contentFl: FrameLayout? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mCtx = this
@@ -21,14 +24,14 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
             statusBarColor(R.color.app_theme_title_color)
             statusBarDarkFont(false)
         }
-        baseBinding = DataBindingUtil.setContentView(this, R.layout.activity_base)
-        baseBinding!!.contentFl.removeAllViews()
-        mDataBinding = DataBindingUtil.inflate(
-            getLayoutInflater(),
-            getLayoutResId(),
-            baseBinding!!.contentFl,
-            true
-        )
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        setContentView(R.layout.activity_base)
+        contentFl = findViewById(R.id.contentFl)
+        contentFl!!.removeAllViews()
+        val sonView: View =
+            LayoutInflater.from(mCtx).inflate(getLayoutResId(savedInstanceState), contentFl, false)
+        contentFl!!.addView(sonView)
+        initView()
         initData()
         doWork()
     }
@@ -39,7 +42,13 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
      *
      * @return 布局资源ID
      */
-    protected abstract fun getLayoutResId(): Int
+    protected abstract fun getLayoutResId(savedInstanceState: Bundle?): Int
+
+    /**
+     * 初始化控件
+     */
+    protected abstract fun initView()
+
     /**
      * 初始化数据
      */

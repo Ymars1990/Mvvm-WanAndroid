@@ -1,17 +1,19 @@
 package com.mars.mvvm.business.ui.fragment
 
+import android.os.Bundle
 import com.mars.mvvm.base.ui.BaseFragment
 import com.mars.mvvm.business.R
-import com.mars.mvvm.business.databinding.HomeBinding
 
 /**
  * @author Mars
  * 首页Fragment
  */
-class HomeFragment : BaseFragment<HomeBinding>() {
-
-    override fun getLayoutResId(): Int {
+class HomeFragment : BaseFragment() {
+    override fun getLayoutResId(savedInstanceState: Bundle?): Int {
         return R.layout.home
+    }
+
+    override fun initView() {
     }
 
     override fun initData() {
@@ -19,4 +21,7 @@ class HomeFragment : BaseFragment<HomeBinding>() {
 
     override fun doWork() {
     }
+
+
 }
+

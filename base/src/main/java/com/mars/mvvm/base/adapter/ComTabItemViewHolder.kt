@@ -1,7 +1,7 @@
 package com.mars.mvvm.base.adapter
 
 import android.view.View
-import com.mars.mvvm.base.databinding.ComtabItemBinding
+import com.mars.mvvm.base.R
 
 
 /**
@@ -9,6 +9,8 @@ import com.mars.mvvm.base.databinding.ComtabItemBinding
  * 通用tab ViewHolder
  */
 class ComTabItemViewHolder(itemView: View) :
-    BaseViewHolder<ComtabItemBinding>(itemView) {
-
+    BaseViewHolder(itemView) {
+    init {
+        initView(R.id.ctxTv)
+    }
 }

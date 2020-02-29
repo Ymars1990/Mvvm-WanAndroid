@@ -1,17 +1,21 @@
 package com.mars.mvvm.business.ui.fragment
 
+import android.os.Bundle
 import com.mars.mvvm.base.ui.BaseFragment
 import com.mars.mvvm.business.R
-import com.mars.mvvm.business.databinding.NavigationBinding
 
 /**
  * @author Mars
  * 导航Fragment
  */
-class NavigationFragment : BaseFragment<NavigationBinding>() {
+class NavigationFragment : BaseFragment() {
 
-    override fun getLayoutResId(): Int {
+
+    override fun getLayoutResId(savedInstanceState: Bundle?): Int {
         return R.layout.navigation
+    }
+
+    override fun initView() {
     }
 
     override fun initData() {

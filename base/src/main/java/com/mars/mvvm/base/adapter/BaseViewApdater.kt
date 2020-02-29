@@ -2,14 +2,18 @@ package com.mars.mvvm.base.adapter
 
 import android.content.Context
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.mars.mvvm.base.interfacer.RvOnClickCallBacker
 import com.mars.mvvm.common_utils.ViewOnClickerUtils
 
-abstract class BaseViewApdater<T : Any, VDB : ViewDataBinding, VH : BaseViewHolder<VDB>>(mCtx: Context, layoutId: Int, onItemClickCallBacker: RvOnClickCallBacker<T>?, dataList: ArrayList<T>?) :
+abstract class BaseViewApdater<T : Any, VH : BaseViewHolder>(
+    mCtx: Context,
+    layoutId: Int,
+    onItemClickCallBacker: RvOnClickCallBacker<T>?,
+    dataList: ArrayList<T>?
+) :
     RecyclerView.Adapter<VH>() {
-    var TAG:String = this.javaClass.simpleName
+    var TAG: String = this.javaClass.simpleName
     var mCtx: Context? = null
     var layoutId: Int
     var onItemClickCallBacker: RvOnClickCallBacker<T>? = null
@@ -61,7 +65,8 @@ abstract class BaseViewApdater<T : Any, VDB : ViewDataBinding, VH : BaseViewHold
     protected fun setItemViewOnClicker(holder: VH, position: Int) {
         holder.itemView.setOnClickListener { v ->
             ViewOnClickerUtils.doubleOnclickAction(mCtx, v)
-            onItemClickCallBacker!!.onItemClickerCallBacker(v, position, dataList!![position]
+            onItemClickCallBacker!!.onItemClickerCallBacker(
+                v, position, dataList!![position]
             )
         }
     }

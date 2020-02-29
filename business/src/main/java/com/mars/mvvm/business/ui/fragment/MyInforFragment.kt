@@ -1,18 +1,20 @@
 package com.mars.mvvm.business.ui.fragment
 
+import android.os.Bundle
 import com.mars.mvvm.base.ui.BaseFragment
 import com.mars.mvvm.business.R
-import com.mars.mvvm.business.databinding.MyinforBinding
-import com.mars.mvvm.business.databinding.WxarticleBinding
 
 /**
  * @author Mars
  * 公众号Fragment
  */
-class MyInforFragment : BaseFragment<MyinforBinding>() {
+class MyInforFragment : BaseFragment() {
 
-    override fun getLayoutResId(): Int {
+    override fun getLayoutResId(savedInstanceState: Bundle?): Int {
         return R.layout.myinfor
+    }
+
+    override fun initView() {
     }
 
     override fun initData() {
