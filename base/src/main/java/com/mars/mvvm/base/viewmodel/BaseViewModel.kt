@@ -9,6 +9,11 @@ import androidx.lifecycle.ViewModel
 abstract class BaseViewModel : ViewModel() {
     var TAG: String? = null
 
+
+    override fun onCleared() {
+        super.onCleared()
+    }
+
     //重新加载
     open fun reload() {}
 
