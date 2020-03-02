@@ -36,4 +36,5 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
 //lifecycle
     api "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleVersion"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 }

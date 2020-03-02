@@ -11,13 +11,14 @@ import androidx.fragment.app.Fragment
 import com.mars.mvvm.base.R
 import com.mars.mvvm.base.viewmodel.BaseViewModel
 
-abstract class BaseFragment<VBM : BaseViewModel> : Fragment() {
+abstract class BaseFragment : Fragment() {
 
     protected var parentCtx: Context? = null
 
     var rootView: View? = null
     var contentFl: FrameLayout? = null
-    var bindViewModel: VBM? = null
+
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         parentCtx = context
@@ -40,7 +41,6 @@ abstract class BaseFragment<VBM : BaseViewModel> : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        bindViewModel = initViewModel()
         initData()
         doWork()
         super.onViewCreated(view, savedInstanceState)
@@ -62,11 +62,6 @@ abstract class BaseFragment<VBM : BaseViewModel> : Fragment() {
      * 初始化数据
      */
     protected abstract fun initData()
-
-    /**
-     *初始化ViewModel
-     */
-    protected abstract fun initViewModel(): VBM
 
     /**
      * @return

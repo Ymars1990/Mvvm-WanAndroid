@@ -15,7 +15,9 @@ import com.mars.mvvm.base.R
 abstract class BaseActivity : AppCompatActivity() {
 
     protected var mCtx: Context? = null
-
+    val TAG: String by lazy {
+        this.javaClass.simpleName
+    }
     var contentFl: FrameLayout? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
