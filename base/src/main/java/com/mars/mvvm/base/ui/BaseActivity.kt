@@ -39,6 +39,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
     /**
      * 获取当前页面的布局资源ID
      *

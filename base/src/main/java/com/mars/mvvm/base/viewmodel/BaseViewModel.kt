@@ -3,17 +3,17 @@ package com.mars.mvvm.base.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.mars.mvvm.base.BaseRepository
 import com.mars.mvvm.base.common.DataState
 import com.mars.mvvm.base.utils.ClassReflactUtils
+import com.mars.mvvm.network.base.BaseRepository
 
 /**
  * @author Mars
  * MVVM  基类ViewModel
  */
-abstract class BaseViewModel<T : BaseRepository>(application: Application) :
+open class BaseViewModel<T : BaseRepository>(application: Application) :
     AndroidViewModel(application) {
-    var TAG: String? = null
+    protected var TAG: String? = null
 
     init {
         TAG = this.javaClass.simpleName
@@ -28,7 +28,7 @@ abstract class BaseViewModel<T : BaseRepository>(application: Application) :
 
     override fun onCleared() {
         super.onCleared()
-        mRespository!!.unSubscribe()
+        mRespository.unSubscribe()
     }
 
 }

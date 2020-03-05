@@ -7,8 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
-import com.mars.mvvm.common_utils.LogManger.logE
-import com.mars.mvvm.common_utils.LogManger.logI
+import com.mars.mvvm.common_utils.LogManger.Companion.logE
+import com.mars.mvvm.common_utils.LogManger.Companion.logI
+
 
 object ViewMutiUtils {
     /**

@@ -2,7 +2,7 @@ package com.mars.mvvm.common_utils
 
 import android.content.Context
 import android.widget.Toast
-import com.mars.mvvm.common_utils.MyStringUtils.stringIsNotNull
+import com.mars.mvvm.common_utils.MyStringUtils.Companion.stringIsNotNull
 
 /**
  * @author Mars

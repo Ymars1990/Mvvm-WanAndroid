@@ -15,7 +15,6 @@ class Constant {
          */
         const val DELAYMILLIS: Long = 500
 
-
         /**
          * ResultCode
          */
@@ -57,6 +56,15 @@ class Constant {
                 "应用程序正常运行，并且不会被杀掉。但是目前手机的内存已经有点低了，系统可能会开始根据LRU缓存规则来去杀死进程了"
             )
         }
+
+        //网络请求相关
+        const val BASE_SERVER_URL = "https://www.wanandroid.com"
+
+        const val data = "data"
+        const val code = "errorCode"
+        const val msg = "errorMsg"
+
+        const val pageSize = 20
     }
 
 }
