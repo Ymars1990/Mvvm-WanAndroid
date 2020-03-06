@@ -35,12 +35,8 @@ ext {
     lifecycleVersion = '2.0.0'
     // http
     okHttpVersion = '3.13.1'
-
     retrofitVersion = '2.5.0'
-
-    rxJavaVersion = '2.2.7'
-    rxJavaVersion = '2.2.7'
-
+    rxKotlin = '2.3.0'
     rxAndroidVersion = '2.1.1'
 
 }

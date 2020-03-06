@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.mars.mvvm.common_utils.constant.Constant
 import com.mars.mvvm.network.gsonfactory.*
 import com.mars.mvvm.network.interceptor.LoggingInterceptor
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -34,27 +35,9 @@ class RetrofitManagerFactory private constructor() {
             .baseUrl(Constant.BASE_SERVER_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(BaseConverterFactory.create())
+//            .addConverterFactory(BaseConverterFactory.create())
             .addConverterFactory(NobodyConverterFactory.create())
-            .addConverterFactory(
-                GsonConverterFactory.create(
-                    GsonBuilder()
-                        .registerTypeAdapter(Int::class.java, IntegerDefault0Adapter())
-                        .registerTypeAdapter(Int::class.javaPrimitiveType, IntegerDefault0Adapter())
-                        .registerTypeAdapter(Double::class.java, DoubleDefault0Adapter())
-                        .registerTypeAdapter(
-                            Double::class.javaPrimitiveType,
-                            DoubleDefault0Adapter()
-                        )
-                        .registerTypeAdapter(Long::class.java, LongDefault0Adapter())
-                        .registerTypeAdapter(
-                            Long::class.javaPrimitiveType,
-                            LongDefault0Adapter()
-                        )
-                        .registerTypeAdapter(String::class.java, StringDefault0Adapter())
-                        .create()
-                )
-            )
+            .addConverterFactory(initGsonConverterFactory())
             .client(initOkHttpClient())
             .build();
     }
@@ -65,10 +48,44 @@ class RetrofitManagerFactory private constructor() {
             .addNetworkInterceptor(LoggingInterceptor())
             .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
+            .addInterceptor(initCommonInterceptor())
             .followRedirects(false)
             .followSslRedirects(true)
 //            .cookieJar(new CookieManger(mCtx))
             .build()
+    }
+
+    private fun initCommonInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            val request = chain.request()
+                .newBuilder()
+                .addHeader("Content-Type", "application/json")
+                .addHeader("charset", "UTF-8")
+                .build()
+
+            chain.proceed(request)
+        }
+    }
+
+    private fun initGsonConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create(
+            GsonBuilder()
+                .registerTypeAdapter(Int::class.java, IntegerDefault0Adapter())
+                .registerTypeAdapter(Int::class.javaPrimitiveType, IntegerDefault0Adapter())
+                .registerTypeAdapter(Double::class.java, DoubleDefault0Adapter())
+                .registerTypeAdapter(
+                    Double::class.javaPrimitiveType,
+                    DoubleDefault0Adapter()
+                )
+                .registerTypeAdapter(Long::class.java, LongDefault0Adapter())
+                .registerTypeAdapter(
+                    Long::class.javaPrimitiveType,
+                    LongDefault0Adapter()
+                )
+                .registerTypeAdapter(String::class.java, StringDefault0Adapter())
+                .create()
+        )
+
     }
 }
 

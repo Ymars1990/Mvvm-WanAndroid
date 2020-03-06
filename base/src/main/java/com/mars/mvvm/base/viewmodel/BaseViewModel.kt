@@ -3,7 +3,7 @@ package com.mars.mvvm.base.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.mars.mvvm.base.common.DataState
+import com.mars.mvvm.network.common.DataState
 import com.mars.mvvm.base.utils.ClassReflactUtils
 import com.mars.mvvm.network.base.BaseRepository
 

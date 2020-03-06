@@ -2,7 +2,7 @@ package com.mars.mvvm.base.ui
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.mars.mvvm.base.common.DataState
+import com.mars.mvvm.network.common.DataState
 import com.mars.mvvm.base.utils.ClassReflactUtils
 import com.mars.mvvm.base.viewmodel.BaseViewModel
 import com.mars.mvvm.common_utils.LogManger

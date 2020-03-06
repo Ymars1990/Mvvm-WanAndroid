@@ -6,7 +6,7 @@ import io.reactivex.disposables.Disposable
 
 /**
  * @author Mars
- * 发送数据请求
+ * 订阅时间
  */
 open class BaseRepository {
     private val mCompositeSubscription by lazy { CompositeDisposable() }

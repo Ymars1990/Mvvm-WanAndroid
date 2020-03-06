@@ -64,6 +64,9 @@ class Constant {
         const val code = "errorCode"
         const val msg = "errorMsg"
 
+        const val RESPONSE_SUCCESS = 0
+        const val RESPONSE_NOT_LOGIN = -1001
+
         const val pageSize = 20
     }
 

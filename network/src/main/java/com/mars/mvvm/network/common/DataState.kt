@@ -1,4 +1,4 @@
-package com.mars.mvvm.base.common
+package com.mars.mvvm.network.common
 
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
@@ -16,6 +16,7 @@ class DataState(val code: Int, val state: String) {
             var LOADING = DataState(3, "数据加载中")
             var NULL = DataState(4, "数据异常")
             var EMPTY = DataState(5, "无更多数据")
+            var ERROR_LOGIN_INVAILDATE = DataState(6, "登录信息过期")
         }
     }
 
