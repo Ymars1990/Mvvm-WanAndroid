@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <com.youth.banner.Banner
+        android:id="@+id/homeBv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_height="@dimen/dp150"
+        android:scaleType="fitXY"
+        app:is_auto_loop="true"
+        app:layout_scrollFlags="scroll" />
 
-        <TextView
-            android:id="@+id/homeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home" />
-    </LinearLayout>
+</RelativeLayout>

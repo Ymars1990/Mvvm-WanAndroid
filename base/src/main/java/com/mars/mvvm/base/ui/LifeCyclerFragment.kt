@@ -2,11 +2,10 @@ package com.mars.mvvm.base.ui
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.mars.mvvm.network.common.DataState
 import com.mars.mvvm.base.utils.ClassReflactUtils
 import com.mars.mvvm.base.viewmodel.BaseViewModel
-import com.mars.mvvm.common_utils.LogManger
 import com.mars.mvvm.common_utils.ToastManger
+import com.mars.mvvm.network.common.DataState
 
 abstract class LifeCyclerFragment<T : BaseViewModel<*>> : BaseFragment() {
 
@@ -68,7 +67,8 @@ abstract class LifeCyclerFragment<T : BaseViewModel<*>> : BaseFragment() {
     private val observer by lazy {
         Observer<DataState> {
             it?.let {
-                LogManger.logE(TAG, DataState.DataStateType.toString())
+                baseSrl!!.finishLoadMore()
+                baseSrl!!.finishRefresh()
                 when (it) {
                     DataState.DataStateType.LOADING -> dataLoading()
                     DataState.DataStateType.SUCCESS -> dataLoadSuccess()

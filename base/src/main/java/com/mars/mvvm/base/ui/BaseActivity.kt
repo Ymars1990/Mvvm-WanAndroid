@@ -22,10 +22,6 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mCtx = this
-        immersionBar {
-            statusBarColor(R.color.app_theme_title_color)
-            statusBarDarkFont(false)
-        }
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_base)
         contentFl = findViewById(R.id.contentFl)

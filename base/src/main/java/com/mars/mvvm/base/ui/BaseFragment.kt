@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-
 import androidx.fragment.app.Fragment
 import com.mars.mvvm.base.R
-import com.mars.mvvm.base.viewmodel.BaseViewModel
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
 
 abstract class BaseFragment : Fragment() {
 
@@ -18,6 +17,7 @@ abstract class BaseFragment : Fragment() {
     var rootView: View? = null
     var contentFl: FrameLayout? = null
 
+    var baseSrl: SmartRefreshLayout? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -30,20 +30,22 @@ abstract class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_base, container, false)
+        baseSrl = rootView!!.findViewById(R.id.baseSrl)
         contentFl = rootView!!.findViewById(R.id.contentFl)
         contentFl!!.removeAllViews()
         val sonView: View =
             LayoutInflater.from(parentCtx)
                 .inflate(getLayoutResId(savedInstanceState), contentFl, false)
         contentFl!!.addView(sonView)
-        initView()
+
         return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
         initData()
         doWork()
-        super.onViewCreated(view, savedInstanceState)
     }
 
     /**

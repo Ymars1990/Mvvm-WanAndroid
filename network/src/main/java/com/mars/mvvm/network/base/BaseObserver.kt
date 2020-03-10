@@ -47,16 +47,17 @@ class BaseObserver<T : BaseReponseModel<*>>(
             }
             else -> {
                 loadState.postValue(DataState.DataStateType.ERROR)
-                liveData.postValue(response)
             }
         }
     }
 
     override fun onError(e: Throwable) {
-        if (BuildConfig.DEBUG) {
-            e.message?.let { LogManger.logE(TAG, e) }
-        }
         loadState.postValue(DataState.DataStateType.NETWORK_ERROR)
+        if (BuildConfig.DEBUG) {
+            e?.let {
+                LogManger.logE(TAG, e.message)
+            }
+        }
     }
 
 

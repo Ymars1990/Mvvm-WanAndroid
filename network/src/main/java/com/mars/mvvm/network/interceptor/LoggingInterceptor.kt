@@ -18,10 +18,12 @@ import java.util.concurrent.TimeUnit
 class LoggingInterceptor : Interceptor {
     private val UTF8: Charset = Charset.forName("UTF-8")
     private val TAG = this.javaClass.simpleName
+
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response? {
-        val request: Request = chain.request()
-        val requestBody: RequestBody = request.body()!!
+        var request: Request = chain.request()
+        //有请求body可以为null，此处requestBody 可以为null
+        var requestBody: RequestBody? = request.body()
         var body: String? = null
         if (requestBody != null) {
             val buffer = Buffer()
