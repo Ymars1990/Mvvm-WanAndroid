@@ -36,7 +36,7 @@ dependencies {
     api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
-
+    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.ext.retrofit2_kotlin_coroutines"
     // RxJava
     api "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxKotlin"
     api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"

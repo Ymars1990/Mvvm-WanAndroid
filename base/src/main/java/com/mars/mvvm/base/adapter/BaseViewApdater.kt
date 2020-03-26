@@ -53,7 +53,7 @@ abstract class BaseViewApdater<T : Any, VH : BaseViewHolder>(
      *
      * @param mCtx
      */
-    abstract fun initViewHolderView(mCtx: Context, itemView: ViewGroup): VH
+    abstract fun initViewHolderView(mCtx: Context, parent: ViewGroup): VH
 
 
     /**

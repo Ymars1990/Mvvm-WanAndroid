@@ -7,17 +7,18 @@
     <color name="transparent50">#50000000</color>
     <color name="semi_transparent">#90000000</color>
 
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#0F7AB2</color>
+    <color name="colorprimary">#008577</color>
+    <color name="colorprimarydark">#00574b</color>
+    <color name="coloraccent">#0f7ab2</color>
 
 
-    <color name="app_theme_title_color">#0F7AB2</color>
+    <color name="app_theme_title_color">#0f7ab2</color>
     <color name="gray">#55808080</color>
 
     <color name="black">#000000</color>
     <color name="blackeeeeee">#eeeeee</color>
 
     <color name="red">#fc2828</color>
+    <color name="green">#ff07ef07</color>
 
 </resources>

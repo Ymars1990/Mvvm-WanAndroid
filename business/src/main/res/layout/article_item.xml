@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp15"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/topTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp5"
+        android:text="置顶"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/sp12"
+        android:textColor="@color/red"
+        android:background="@drawable/r5_r" />
+
+    <TextView
+        android:id="@+id/newestTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp5"
+        android:text="新"
+        android:textSize="@dimen/sp12"
+        android:layout_marginStart="@dimen/dp5"
+        app:layout_constraintStart_toEndOf="@id/topTv"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/red"
+        android:background="@drawable/r5_r" />
+
+    <TextView
+        android:id="@+id/updateTimeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp5"
+        android:text="刚刚"
+        android:textSize="@dimen/sp12"
+        android:layout_marginStart="@dimen/dp5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/articleTitleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="文章标题"
+        android:textSize="@dimen/sp16"
+        app:layout_constraintTop_toBottomOf="@id/topTv" />
+
+    <TextView
+        android:id="@+id/authorTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="作者:"
+        android:textSize="@dimen/sp13"
+        app:layout_constraintTop_toBottomOf="@id/articleTitleTv" />
+
+    <TextView
+        android:id="@+id/catagoryTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="分类:"
+        android:textSize="@dimen/sp13"
+        app:layout_constraintStart_toEndOf="@id/authorTv"
+        app:layout_constraintBaseline_toBaselineOf="@id/authorTv"
+        app:layout_constraintTop_toBottomOf="@id/articleTitleTv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

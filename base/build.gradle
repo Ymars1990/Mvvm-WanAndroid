@@ -37,7 +37,7 @@ dependencies {
 //lifecycle
     api "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleVersion"
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
     api 'com.youth.banner:banner:2.0.0-alpha02'  //预览版
 
     api 'com.github.bumptech.glide:glide:4.11.0'

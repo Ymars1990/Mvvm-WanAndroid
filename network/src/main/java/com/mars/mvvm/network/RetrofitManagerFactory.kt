@@ -1,6 +1,7 @@
 package com.mars.mvvm.network
 
 import com.google.gson.GsonBuilder
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.mars.mvvm.common_utils.constant.Constant
 import com.mars.mvvm.network.gsonfactory.*
 import com.mars.mvvm.network.interceptor.LoggingInterceptor
@@ -37,6 +38,7 @@ class RetrofitManagerFactory private constructor() {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(NobodyConverterFactory.create())
             .addConverterFactory(initGsonConverterFactory())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(initOkHttpClient())
             .build();
     }

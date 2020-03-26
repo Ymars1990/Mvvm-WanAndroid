@@ -7,9 +7,14 @@
     <com.youth.banner.Banner
         android:id="@+id/homeBv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp150"
+        android:layout_height="@dimen/dp200"
         android:scaleType="fitXY"
         app:is_auto_loop="true"
         app:layout_scrollFlags="scroll" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/articleRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homeBv" />
 </RelativeLayout>

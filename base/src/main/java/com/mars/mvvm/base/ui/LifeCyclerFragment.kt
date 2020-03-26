@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.mars.mvvm.base.utils.ClassReflactUtils
 import com.mars.mvvm.base.viewmodel.BaseViewModel
+import com.mars.mvvm.common_utils.LogManger
 import com.mars.mvvm.common_utils.ToastManger
 import com.mars.mvvm.network.common.DataState
 
@@ -12,11 +13,10 @@ abstract class LifeCyclerFragment<T : BaseViewModel<*>> : BaseFragment() {
     lateinit var mViewModel: T
 
     var isHasData: Boolean = false
-    val TAG: String by lazy {
-        this.javaClass.simpleName
-    }
+
 
     override fun initData() {
+        LogManger.logE(TAG, String.format("initData"))
         mViewModel = ViewModelProviders.of(this).get(ClassReflactUtils.getClass(this))
         mViewModel.loadState.observe(this, observer)
         dataObserver()
