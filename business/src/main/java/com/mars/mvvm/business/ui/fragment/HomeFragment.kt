@@ -41,7 +41,6 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
     override fun initView() {
         homeBv = rootView!!.findViewById(R.id.homeBv)
         baseSrl!!.setOnRefreshLoadMoreListener(this)
-
         articleRv = rootView!!.findViewById(R.id.articleRv)
         initRv()
     }
@@ -57,16 +56,18 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
         mViewModel.getNewsetArticle(page)
     }
 
-   private fun initBanner() {
+    private fun initBanner() {
         homeBv!!.adapter = BannerImagerAdapter(parentCtx!!, banners)
         homeBv!!.setOnBannerListener(this)
         homeBv!!.isAutoLoop(true)
         homeBv!!.indicator = CircleIndicator(parentCtx)
     }
-    private  fun initRv() {
+
+    private fun initRv() {
         articleRv!!.layoutManager = LinearLayoutManager(parentCtx)
 
     }
+
     override fun dataObserver() {
         mViewModel.mBannerData.observe(this, Observer { response ->
             response?.let {
