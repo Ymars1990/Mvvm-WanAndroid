@@ -56,7 +56,7 @@
 
     <TextView
         android:id="@+id/authorTv"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp10"
         android:text="作者:"
@@ -66,9 +66,10 @@
 
     <TextView
         android:id="@+id/catagoryTv"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp20"
         android:text="分类:"
         android:textSize="@dimen/sp13"
         app:layout_constraintStart_toEndOf="@id/authorTv"

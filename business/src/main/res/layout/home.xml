@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp200"
         android:scaleType="fitXY"
-        app:is_auto_loop="true"
-        app:layout_scrollFlags="scroll" />
+        app:is_auto_loop="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/articleRv"

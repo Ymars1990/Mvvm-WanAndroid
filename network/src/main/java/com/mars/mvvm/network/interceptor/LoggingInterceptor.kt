@@ -3,7 +3,6 @@ package com.mars.mvvm.network.interceptor
 import com.mars.mvvm.common_utils.JsonFormater
 import com.mars.mvvm.common_utils.LogManger
 import okhttp3.*
-import okhttp3.internal.http.HttpHeaders
 import okio.Buffer
 import java.io.IOException
 import java.nio.charset.Charset
@@ -20,10 +19,10 @@ class LoggingInterceptor : Interceptor {
     private val TAG = this.javaClass.simpleName
 
     @Throws(IOException::class)
-    override fun intercept(chain: Interceptor.Chain): Response? {
-        var request: Request = chain.request()
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request: Request = chain.request()
         //有请求body可以为null，此处requestBody 可以为null
-        var requestBody: RequestBody? = request.body()
+        var requestBody: RequestBody? = request.body
         var body: String? = null
         if (requestBody != null) {
             val buffer = Buffer()
@@ -39,9 +38,9 @@ class LoggingInterceptor : Interceptor {
             TAG,
             String.format(
                 "发送请求\nmethod：%s\nurl:%s\nheaders:%sbody:%s",
-                request.method(),
-                request.url(),
-                request.headers(),
+                request.method,
+                request.url,
+                request.headers,
                 body
             )
         )
@@ -49,9 +48,9 @@ class LoggingInterceptor : Interceptor {
         val response = chain.proceed(request)
         val tookMs: Long =
             TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs)
-        val responseBody = response.body()
+        val responseBody = response.body
         var rBody: String? = null
-        if (HttpHeaders.hasBody(response)) {
+        if (response != null) {
             val source = responseBody!!.source()
             source.request(Long.MAX_VALUE) // Buffer the entire body.
             val buffer: Buffer = source.buffer()
@@ -70,12 +69,12 @@ class LoggingInterceptor : Interceptor {
             TAG,
             String.format(
                 "收到响应 %s%s %ss\n请求url:%s\n请求body:%s\n请求header:%s响应body:",
-                response.code(),
-                response.message(),
+                response.code,
+                response.message,
                 tookMs,
-                response.request().url(),
+                response.request.url,
                 JsonFormater.format(rBody),
-                request.headers()
+                request.headers
             )
         )
 //        LogManger.logE(TAG, JsonFormater.format(rBody))

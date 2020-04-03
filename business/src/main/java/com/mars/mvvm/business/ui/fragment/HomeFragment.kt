@@ -103,13 +103,6 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
         if (banners.size > 0) {
             LogManger.logE(TAG, String.format("轮播图:%s 被点击", banners[position]))
         }
-
-    }
-
-    override fun onBannerChanged(position: Int) {
-        if (banners.size > 0) {
-            LogManger.logE(TAG, String.format("当前播放轮播图:%s ", banners[position]))
-        }
     }
 }
 
