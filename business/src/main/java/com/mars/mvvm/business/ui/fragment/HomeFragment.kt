@@ -1,11 +1,14 @@
 package com.mars.mvvm.business.ui.fragment
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mars.mvvm.base.interfacer.RvOnClickCallBacker
 import com.mars.mvvm.base.ui.LifeCyclerFragment
 import com.mars.mvvm.business.R
+import com.mars.mvvm.business.adapter.ArticleAapter
 import com.mars.mvvm.business.adapter.BannerImagerAdapter
 import com.mars.mvvm.business.bean.ArticleBean
 import com.mars.mvvm.business.bean.BannerBean
@@ -24,7 +27,7 @@ import com.youth.banner.listener.OnBannerListener
  * 首页Fragment
  */
 class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListener,
-    OnBannerListener<BannerBean> {
+    OnBannerListener<BannerBean>, RvOnClickCallBacker<ArticleBean> {
 
     var page: Int = 0
     var articleRv: RecyclerView? = null
@@ -65,7 +68,7 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
 
     private fun initRv() {
         articleRv!!.layoutManager = LinearLayoutManager(parentCtx)
-
+        articleRv!!.adapter =  ArticleAapter(parentCtx!!, articles, R.layout.article_item, this)
     }
 
     override fun dataObserver() {
@@ -84,7 +87,14 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
                 if (page == 0) {
                     articles.clear()
                 }
+                if (article!!.datas.size == 20) {
+                    page++
+                    baseSrl!!.setEnableLoadMore(true);
+                } else {
+                    baseSrl!!.finishLoadMoreWithNoMoreData();
+                }
                 articles.addAll(article!!.datas)
+                articleRv!!.adapter!!.notifyDataSetChanged()
             }
         })
     }
@@ -103,6 +113,10 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
         if (banners.size > 0) {
             LogManger.logE(TAG, String.format("轮播图:%s 被点击", banners[position]))
         }
+    }
+
+    override fun onItemClickerCallBacker(view: View?, pos: Int, data: ArticleBean) {
+        TODO("Not yet implemented")
     }
 }
 

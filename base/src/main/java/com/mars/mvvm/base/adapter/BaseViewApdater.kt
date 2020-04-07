@@ -70,5 +70,4 @@ abstract class BaseViewApdater<T : Any, VH : BaseViewHolder>(
             )
         }
     }
-
 }

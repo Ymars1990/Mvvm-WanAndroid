@@ -15,5 +15,9 @@ class ArticleViewHolder(itemView: View) :
         initView(R.id.topTv)
         initView(R.id.newestTv)
         initView(R.id.updateTimeTv)
+        initView(R.id.articleTitleTv)
+        initView(R.id.authorTv)
+        initView(R.id.catagoryTv)
+        initView(R.id.followIv)
     }
 }
