@@ -116,7 +116,7 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
     }
 
     override fun onItemClickerCallBacker(view: View?, pos: Int, data: ArticleBean) {
-        TODO("Not yet implemented")
+
     }
 }
 

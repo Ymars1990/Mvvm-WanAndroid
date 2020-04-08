@@ -3,88 +3,78 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/dp15"
+    android:layout_marginStart="@dimen/dp10"
+    android:layout_marginBottom="@dimen/dp5"
+    android:layout_marginTop="@dimen/dp5"
+    android:layout_marginEnd="@dimen/dp10"
     android:background="@drawable/r5_w"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/topTv"
+    <ImageView
+        android:id="@+id/userLogoIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp5"
-        android:text="置顶"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/sp12"
-        android:textColor="@color/red"
-        android:layout_marginEnd="@dimen/dp5"
-        android:background="@drawable/r5_r" />
-
-    <TextView
-        android:id="@+id/newestTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dp5"
-        android:text="新"
-        android:textSize="@dimen/sp12"
-        android:layout_marginEnd="@dimen/dp5"
-        app:layout_constraintStart_toEndOf="@id/topTv"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/red"
-        android:background="@drawable/r5_r" />
-
-    <TextView
-        android:id="@+id/updateTimeTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/dp5"
-        android:text="刚刚"
-        android:textSize="@dimen/sp12"
-        android:layout_marginEnd="@dimen/dp5"
-        android:layout_marginBottom="@dimen/dp10"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/articleTitleTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:textStyle="bold"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:text="文章标题"
-        android:textSize="@dimen/sp16"
-        app:layout_constraintTop_toBottomOf="@id/updateTimeTv" />
+        android:background="@drawable/c20_app_theme"
+        android:src="@mipmap/user_logo" />
 
     <TextView
         android:id="@+id/authorTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp10"
+        android:textSize="@dimen/sp16"
+        app:layout_constraintStart_toEndOf="@id/userLogoIv"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:text="作者:"
-        android:textSize="@dimen/sp13"
+
+    <TextView
+        android:id="@+id/articleTitleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="文章标题"
+        android:textSize="@dimen/sp16"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/articleTitleTv" />
+        app:layout_constraintTop_toBottomOf="@id/userLogoIv" />
+
 
     <TextView
         android:id="@+id/catagoryTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp10"
-        android:layout_marginStart="@dimen/dp20"
         android:text="分类:"
         android:textSize="@dimen/sp13"
-        app:layout_constraintStart_toEndOf="@id/authorTv"
-        app:layout_constraintBaseline_toBaselineOf="@id/authorTv"
-        app:layout_constraintTop_toBottomOf="@id/articleTitleTv" />
+        app:layout_constraintTop_toBottomOf="@id/articleTitleTv"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/updateTimeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:padding="@dimen/dp5"
+        android:text="刚刚"
+        android:textSize="@dimen/sp12"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp10"
+        app:layout_constraintStart_toEndOf="@id/catagoryTv"
+        app:layout_constraintBaseline_toBaselineOf="@id/catagoryTv" />
 
     <ImageView
         android:id="@+id/followIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/catagoryTv"
+        app:layout_constraintBottom_toBottomOf="@id/catagoryTv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@mipmap/focus_no"
-  />
+        android:src="@mipmap/focus_no" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

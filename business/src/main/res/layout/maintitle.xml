@@ -35,7 +35,7 @@
         android:textColor="@color/white"
         android:maxLines="1"
         android:singleLine="true"
-        android:background="@drawable/r5_w"
+        android:background="@drawable/r5_w_t"
         android:textColorHint="@color/whiteaa"
         android:layout_height="@dimen/dp40"
         android:layout_toEndOf="@id/userLogoIv" />

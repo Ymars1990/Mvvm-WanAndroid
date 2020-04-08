@@ -12,8 +12,6 @@ import com.mars.mvvm.business.R
 class ArticleViewHolder(itemView: View) :
     BaseViewHolder(itemView) {
     init {
-        initView(R.id.topTv)
-        initView(R.id.newestTv)
         initView(R.id.updateTimeTv)
         initView(R.id.articleTitleTv)
         initView(R.id.authorTv)
