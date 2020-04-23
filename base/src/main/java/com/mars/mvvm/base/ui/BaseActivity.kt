@@ -7,7 +7,10 @@ import android.view.View
 import android.view.Window
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
+import com.gyf.immersionbar.ImmersionBar
 import com.mars.mvvm.base.R
+import com.mars.mvvm.base.utils.ClassReflactUtils
 
 
 abstract class BaseActivity : AppCompatActivity() {
