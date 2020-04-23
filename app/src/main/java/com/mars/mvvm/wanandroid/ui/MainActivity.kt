@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.gyf.immersionbar.ktx.immersionBar
 import com.mars.mvvm.base.adapter.ComTabItemAdapter
 import com.mars.mvvm.base.adapter.ComViewPagerAdapter
 import com.mars.mvvm.base.bean.ComTabItemBean
@@ -50,6 +51,10 @@ class MainActivity : BaseActivity(), RvOnClickCallBacker<ComTabItemBean>,
 
     var tabSelected = 0
     override fun getLayoutResId(savedInstanceState: Bundle?): Int {
+        immersionBar {
+            statusBarColor(R.color.transparent)
+            statusBarDarkFont(true)
+        }
         return R.layout.activity_main
     }
 
@@ -65,6 +70,7 @@ class MainActivity : BaseActivity(), RvOnClickCallBacker<ComTabItemBean>,
                 mCtx!!.resources.getString(R.string.home),
                 getTabSelectedRid[0],
                 R.color.app_theme_title_color,
+
                 DrawableTextView.ICON_DIR_TOP
             )
         )

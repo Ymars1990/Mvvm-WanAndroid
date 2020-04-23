@@ -54,7 +54,7 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
 
     override fun doWork() {
         initBanner()
-        mViewModel!!.logTest()
+        mViewModel.logTest()
         mViewModel.getBanner()
         mViewModel.getNewsetArticle(page)
     }

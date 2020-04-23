@@ -7,8 +7,6 @@ import android.view.View
 import android.view.Window
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-
-import com.gyf.immersionbar.ktx.immersionBar
 import com.mars.mvvm.base.R
 
 
@@ -19,11 +17,13 @@ abstract class BaseActivity : AppCompatActivity() {
         this.javaClass.simpleName
     }
     var contentFl: FrameLayout? = null
+    var statusView: View? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mCtx = this
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_base)
+        statusView = findViewById(R.id.statusView)
         contentFl = findViewById(R.id.contentFl)
         contentFl!!.removeAllViews()
         val sonView: View =
