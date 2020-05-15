@@ -38,4 +38,5 @@ dependencies {
     api rootProject.ext.dependencies.kotlin_stdlib_jdk7
     api rootProject.ext.dependencies.core_ktx
     api rootProject.ext.dependencies.constraintlayout
+    api rootProject.ext.dependencies.leakcanary
 }

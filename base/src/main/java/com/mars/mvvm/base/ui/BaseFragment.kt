@@ -41,6 +41,7 @@ abstract class BaseFragment : Fragment() {
             FrameLayout.LayoutParams.MATCH_PARENT,
             FrameLayout.LayoutParams.MATCH_PARENT
         )
+        baseSrl!!.setEnableAutoLoadMore(false)
         flp.topMargin = ImmersionBar.getStatusBarHeight(this)
         LogManger.logE(TAG, flp.topMargin)
         baseSrl!!.layoutParams = flp

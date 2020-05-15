@@ -13,7 +13,6 @@ android {
         versionName rootProject.ext.android.versionName
 
 
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -28,11 +27,15 @@ android {
 }
 
 dependencies {
-    api project(':network')
+    implementation project(':network')
+    implementation project(':component')
+    implementation project(':common_utils')
+
     api rootProject.ext.dependencies.banner
     api rootProject.ext.dependencies.immersionbar
     api rootProject.ext.dependencies.immersionbar_ktx
 
     api rootProject.ext.dependencies.lifecycle_common
     api rootProject.ext.dependencies.lifecycle_extensions
+    api rootProject.ext.dependencies.multidex
 }

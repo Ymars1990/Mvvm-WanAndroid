@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    api project(':common_utils')
+    implementation project(':common_utils')
 
     api rootProject.ext.dependencies.glide
     api rootProject.ext.dependencies.recyclerview

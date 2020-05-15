@@ -28,6 +28,8 @@ android {
 }
 
 dependencies {
-    api project(':base')
-
+    implementation project(':base')
+    implementation project(':network')
+    implementation project(':component')
+    implementation project(':common_utils')
 }

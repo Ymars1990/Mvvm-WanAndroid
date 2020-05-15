@@ -89,6 +89,7 @@
 	<dimen name="dp68">77.6333dp</dimen>
 	<dimen name="dp69">78.7750dp</dimen>
 	<dimen name="dp70">79.9167dp</dimen>
+	<dimen name="dpm70">-79.9167dp</dimen>
 	<dimen name="dp71">81.0583dp</dimen>
 	<dimen name="dp72">82.2000dp</dimen>
 	<dimen name="dp73">83.3417dp</dimen>

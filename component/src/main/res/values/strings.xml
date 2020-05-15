@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">comutils</string>
     <string name="top">置顶</string>
     <string name="fresh">新</string>
     <string name="no_related_data">暂无相关数据</string>

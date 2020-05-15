@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -36,5 +34,9 @@ android {
 }
 
 dependencies {
-    api project(':business')
+    implementation project(':business')
+    implementation project(':base')
+    implementation project(':network')
+    implementation project(':component')
+    implementation project(':common_utils')
 }

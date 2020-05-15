@@ -35,7 +35,8 @@ android {
 }
 
 dependencies {
-    api project(':component')
+    implementation project(':component')
+    implementation project(':common_utils')
 
     api rootProject.ext.dependencies.retrofit
     api rootProject.ext.dependencies.converter_gson
