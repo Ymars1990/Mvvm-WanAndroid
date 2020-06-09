@@ -38,4 +38,5 @@ dependencies {
     api rootProject.ext.dependencies.lifecycle_common
     api rootProject.ext.dependencies.lifecycle_extensions
     api rootProject.ext.dependencies.multidex
+    api rootProject.ext.dependencies.coil_kt
 }

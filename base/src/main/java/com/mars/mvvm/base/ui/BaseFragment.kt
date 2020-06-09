@@ -20,7 +20,7 @@ abstract class BaseFragment : Fragment() {
     var contentFl: FrameLayout? = null
 
     var baseSrl: SmartRefreshLayout? = null
-
+    var isOnFresh: Boolean = true;
     val TAG: String by lazy {
         this.javaClass.simpleName
     }

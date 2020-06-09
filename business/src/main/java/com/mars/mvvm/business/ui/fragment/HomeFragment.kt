@@ -68,7 +68,7 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
 
     private fun initRv() {
         articleRv!!.layoutManager = LinearLayoutManager(parentCtx)
-        articleRv!!.adapter =  ArticleAapter(parentCtx!!, articles, R.layout.article_item, this)
+        articleRv!!.adapter = ArticleAapter(parentCtx!!, articles, R.layout.article_item, this)
     }
 
     override fun dataObserver() {
@@ -87,6 +87,7 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
                 if (page == 0) {
                     articles.clear()
                 }
+                LogManger.logE(TAG, articles.size)
                 if (article!!.datas.size == 20) {
                     page++
                     baseSrl!!.setEnableLoadMore(true);
@@ -100,11 +101,13 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
     }
 
     override fun onLoadMore(refreshLayout: RefreshLayout) {
+        isOnFresh = false
         mViewModel.getNewsetArticle(page)
     }
 
     override fun onRefresh(refreshLayout: RefreshLayout) {
         page = 0
+        isOnFresh = true
         mViewModel.getBanner()
         mViewModel.getNewsetArticle(page)
     }

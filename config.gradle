@@ -57,7 +57,9 @@ ext {
             lifecycle_common       : 'androidx.lifecycle:lifecycle-common-java8:2.0.0',
             lifecycle_extensions   : 'androidx.lifecycle:lifecycle-extensions:2.2.0',
             //leakcanary
-            "leakcanary"           : "com.squareup.leakcanary:leakcanary-android:2.3",
+            leakcanary             : "com.squareup.leakcanary:leakcanary-android:2.3",
+            //coil
+            coil_kt              : "io.coil-kt:coil:0.11.0",
 
 
     ]
