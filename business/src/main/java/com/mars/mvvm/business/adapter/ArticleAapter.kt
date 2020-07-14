@@ -28,6 +28,7 @@ class ArticleAapter(
     dataList
 ) {
     override fun bindViewHolder(holder: ArticleViewHolder, itemData: ArticleBean, position: Int) {
+        setItemViewOnClicker(holder,position)
 
         holder.getChildView<TextView>(R.id.articleTitleTv).text = itemData.title
         holder.getChildView<TextView>(R.id.authorTv).text = String.format("%s", itemData.author)

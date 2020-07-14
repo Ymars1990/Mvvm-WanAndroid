@@ -7,7 +7,10 @@ import android.view.View
 import android.view.Window
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.gyf.immersionbar.ImmersionBar
 import com.mars.mvvm.base.R
+import com.mars.mvvm.common_utils.LogManger
 
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -29,6 +32,13 @@ abstract class BaseActivity : AppCompatActivity() {
         val sonView: View =
             LayoutInflater.from(mCtx).inflate(getLayoutResId(savedInstanceState), contentFl, false)
         contentFl!!.addView(sonView)
+        var flp: ConstraintLayout.LayoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.MATCH_PARENT
+        )
+        flp.topMargin = ImmersionBar.getStatusBarHeight(this)
+        LogManger.logE(TAG, flp.topMargin)
+        contentFl!!.layoutParams = flp
         initView()
         initData()
         doWork()

@@ -70,4 +70,7 @@ class ArticleBean(
     var zan: Int,
     var visible: Int
 ) {
+    override fun toString(): String {
+        return "ArticleBean(apkLink='$apkLink', isTop=$isTop, audit=$audit, author='$author', chapterId=$chapterId, chapterName='$chapterName', collect=$collect, courseId=$courseId, desc='$desc', envelopePic='$envelopePic', fresh=$fresh, id=$id, link='$link', niceDate='$niceDate', niceShareDate='$niceShareDate', origin='$origin', prefix='$prefix', projectLink='$projectLink', publishTime=$publishTime, selfVisible=$selfVisible, shareDate=$shareDate, shareUser='$shareUser', superChapterId=$superChapterId, superChapterName='$superChapterName', tags=$tags, title='$title', type=$type, userId=$userId, zan=$zan, visible=$visible)"
+    }
 }

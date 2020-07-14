@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
+import com.alibaba.android.arouter.launcher.ARouter
 import com.mars.mvvm.base.ui.BaseActivity
 import com.mars.mvvm.common_utils.LogManger
 import com.mars.mvvm.common_utils.constant.Constant
@@ -14,6 +15,8 @@ import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
+import com.tencent.smtt.sdk.QbSdk
+import com.tencent.smtt.sdk.QbSdk.PreInitCallback
 import java.lang.String
 import java.util.*
 
@@ -45,6 +48,30 @@ class MainApplication : MultiDexApplication() {
         super.onCreate()
         store = Stack()
         initLifecycleCallback()
+        ARouter.openDebug()
+        ARouter.openLog()
+        ARouter.init(this)
+
+        initX5()
+    }
+
+    private fun initX5() {
+        //非wifi情况下，主动下载x5内核
+
+        //非wifi情况下，主动下载x5内核
+        QbSdk.setDownloadWithoutWifi(true)
+        //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
+        //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
+        val cb: PreInitCallback = object : PreInitCallback {
+            override fun onViewInitFinished(arg0: Boolean) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+            }
+
+            override fun onCoreInitFinished() {}
+        }
+        //x5内核初始化接口
+        //x5内核初始化接口
+        QbSdk.initX5Environment(applicationContext, cb)
     }
 
     override fun onLowMemory() {
@@ -61,6 +88,7 @@ class MainApplication : MultiDexApplication() {
          * 终止应用程序时调用，不能保证一定会被调用
          */
         LogManger.logE("BaseApplication", "[onTerminate()]")
+        ARouter.getInstance().destroy()
     }
 
     override fun onTrimMemory(level: Int) {

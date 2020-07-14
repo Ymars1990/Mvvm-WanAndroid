@@ -5,6 +5,8 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.alibaba.android.arouter.launcher.ARouter
+import com.mars.mvvm.base.AroutePath
 import com.mars.mvvm.base.interfacer.RvOnClickCallBacker
 import com.mars.mvvm.base.ui.LifeCyclerFragment
 import com.mars.mvvm.business.R
@@ -119,7 +121,9 @@ class HomeFragment : LifeCyclerFragment<HomeViewModel>(), OnRefreshLoadMoreListe
     }
 
     override fun onItemClickerCallBacker(view: View?, pos: Int, data: ArticleBean) {
-
+        LogManger.logE(TAG,data.toString())
+        ARouter.getInstance().build(AroutePath.COM_WEBVIEW).withString("url", data.link)
+            .navigation();
     }
 }
 

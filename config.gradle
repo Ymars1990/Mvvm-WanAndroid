@@ -48,7 +48,6 @@ ext {
 
 
             //内存泄漏检测
-            leakcanary             : 'com.squareup.leakcanary:leakcanary-android:2.0',
             //动画播放(图标或者图标动画)
             lottie                 : 'com.airbnb.android:lottie:3.4.0',
             //刷新框架
@@ -60,6 +59,8 @@ ext {
             leakcanary             : "com.squareup.leakcanary:leakcanary-android:2.3",
             //coil
             coil_kt              : "io.coil-kt:coil:0.11.0",
+            //X5 webView
+            tbs_x5Webview              : "com.tencent.tbs.tbssdk:sdk:43903",
 
 
     ]
