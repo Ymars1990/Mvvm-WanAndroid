@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.databinding.DataBindingUtil
 import com.mars.mvvm.base.R
 import com.mars.mvvm.base.bean.ComTabItemBean
 import com.mars.mvvm.base.interfacer.RvOnClickCallBacker
@@ -20,36 +21,27 @@ class ComTabItemAdapter(
     dataList: ArrayList<ComTabItemBean>,
     layoutId: Int,
     onItemClickCallBacker: RvOnClickCallBacker<ComTabItemBean>
-) : BaseViewApdater<ComTabItemBean, ComTabItemViewHolder>(
+) : BaseRVApdater<ComTabItemBean, ComTabItemViewHolder>(
     mCtx,
     layoutId,
     onItemClickCallBacker,
     dataList
 ) {
-
-    override fun bindViewHolder(
-        holder: ComTabItemViewHolder,
-        itemData: ComTabItemBean,
-        position: Int
-    ) {
-        setItemViewOnClicker(holder, position)
-
-        holder!!.getChildView<DrawableTextView>(R.id.ctxTv)!!.text = dataList!![position].text
-        holder!!.getChildView<DrawableTextView>(R.id.ctxTv)!!.setTextColor(
-            AppCompatResources.getColorStateList(
-                mCtx!!,
-                dataList!![position].textColor
+    override fun initViewHolder(parent: ViewGroup, layoutId: Int): ComTabItemViewHolder {
+        return ComTabItemViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(mCtx),
+                layoutId,
+                parent,
+                false
             )
-        )
-        val drawable =
-            AppCompatResources.getDrawable(mCtx!!, dataList!![position].rid)
-        val gravity: Int = dataList!![position].drawableGravity
-        holder!!.getChildView<DrawableTextView>(R.id.ctxTv)!!.setIconDirection(gravity)
-        holder!!.getChildView<DrawableTextView>(R.id.ctxTv)!!.setIconNormal(drawable)
+        );
     }
 
-    override fun initViewHolderView(mCtx: Context, parent: ViewGroup): ComTabItemViewHolder {
-        var rootView: View = LayoutInflater.from(mCtx).inflate(layoutId, parent, false)
-        return ComTabItemViewHolder(rootView)
+    override fun initData(holder: ComTabItemViewHolder, position: Int) {
+        val binding = holder.cdataBinding
+        binding.setVariable(2, dataList!![position])
+        setItemViewOnClicker(holder, position)
     }
+
 }

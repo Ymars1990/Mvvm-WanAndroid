@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.mars.mvvm.base.adapter.BaseRVApdater
 import com.mars.mvvm.base.adapter.BaseViewApdater
 import com.mars.mvvm.base.interfacer.RvOnClickCallBacker
 import com.mars.mvvm.business.R
@@ -21,26 +23,26 @@ class ArticleAapter(
     dataList: ArrayList<ArticleBean>,
     layoutId: Int,
     onItemClickCallBacker: RvOnClickCallBacker<ArticleBean>
-) : BaseViewApdater<ArticleBean, ArticleViewHolder>(
+) : BaseRVApdater<ArticleBean, ArticleViewHolder>(
     mCtx,
     layoutId,
     onItemClickCallBacker,
     dataList
 ) {
-    override fun bindViewHolder(holder: ArticleViewHolder, itemData: ArticleBean, position: Int) {
-        setItemViewOnClicker(holder,position)
-
-        holder.getChildView<TextView>(R.id.articleTitleTv).text = itemData.title
-        holder.getChildView<TextView>(R.id.authorTv).text = String.format("%s", itemData.author)
-        holder.getChildView<TextView>(R.id.catagoryTv).text =
-            String.format("%s", itemData.superChapterName)
-        holder.getChildView<TextView>(R.id.updateTimeTv).text = itemData.niceDate
-        holder.getChildView<ImageView>(R.id.followIv)
-            .setImageResource(if (itemData.collect) R.mipmap.focus else R.mipmap.focus_no)
+    override fun initViewHolder(parent: ViewGroup, layoutId: Int): ArticleViewHolder {
+        return ArticleViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(mCtx),
+                layoutId,
+                parent,
+                false
+            )
+        )
     }
 
-    override fun initViewHolderView(mCtx: Context, parent: ViewGroup): ArticleViewHolder {
-        var rootView: View = LayoutInflater.from(mCtx).inflate(layoutId, parent, false)
-        return ArticleViewHolder(rootView)
+    override fun initData(holder: ArticleViewHolder, position: Int) {
+        val binding = holder.adataBinding
+        binding.setVariable(1, dataList!![position])
+        setItemViewOnClicker(holder,position)
     }
 }

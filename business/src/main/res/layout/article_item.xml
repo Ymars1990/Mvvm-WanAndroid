@@ -1,80 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/dp15"
-    android:layout_marginStart="@dimen/dp10"
-    android:layout_marginBottom="@dimen/dp5"
-    android:layout_marginTop="@dimen/dp5"
-    android:layout_marginEnd="@dimen/dp10"
-    android:background="@drawable/r5_w"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/userLogoIv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/c20_app_theme"
-        android:src="@mipmap/user_logo" />
+    <data>
 
-    <TextView
-        android:id="@+id/authorTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp10"
-        android:layout_marginStart="@dimen/dp10"
-        android:textSize="@dimen/sp16"
-        app:layout_constraintStart_toEndOf="@id/userLogoIv"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="article"
+            type="com.mars.mvvm.business.bean.ArticleBean" />
+    </data>
 
-
-    <TextView
-        android:id="@+id/articleTitleTv"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp15"
-        android:textStyle="bold"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:text="文章标题"
-        android:textSize="@dimen/sp16"
-        android:includeFontPadding="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userLogoIv" />
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp5"
+        android:background="@drawable/r5_w"
+        android:padding="@dimen/dp15">
+
+        <ImageView
+            android:id="@+id/userLogoIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/c20_app_theme"
+            android:src="@mipmap/user_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/authorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            android:textSize="@dimen/sp16"
+            android:text="@{article.author}"
+            app:layout_constraintStart_toEndOf="@id/userLogoIv"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/catagoryTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dp10"
-        android:text="分类:"
-        android:textSize="@dimen/sp13"
-        app:layout_constraintTop_toBottomOf="@id/articleTitleTv"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/articleTitleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp15"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:text="@{article.title}"
+            android:textSize="@dimen/sp16"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userLogoIv" />
 
-    <TextView
-        android:id="@+id/updateTimeTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp10"
-        android:padding="@dimen/dp5"
-        android:text="刚刚"
-        android:textSize="@dimen/sp12"
-        android:layout_marginEnd="@dimen/dp5"
-        android:layout_marginBottom="@dimen/dp10"
-        app:layout_constraintStart_toEndOf="@id/catagoryTv"
-        app:layout_constraintBaseline_toBaselineOf="@id/catagoryTv" />
 
-    <ImageView
-        android:id="@+id/followIv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/catagoryTv"
-        app:layout_constraintBottom_toBottomOf="@id/catagoryTv"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@mipmap/focus_no" />
+        <TextView
+            android:id="@+id/catagoryTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp10"
+            android:text="@{article.chapterName}"
+            android:textSize="@dimen/sp13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleTitleTv" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/updateTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp10"
+            android:padding="@dimen/dp5"
+            android:text="@{article.niceDate}"
+            android:textSize="@dimen/sp12"
+            app:layout_constraintBaseline_toBaselineOf="@id/catagoryTv"
+            app:layout_constraintStart_toEndOf="@id/catagoryTv" />
+
+        <ImageView
+            android:id="@+id/followIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/focus_no"
+            app:layout_constraintBottom_toBottomOf="@id/catagoryTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/catagoryTv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
