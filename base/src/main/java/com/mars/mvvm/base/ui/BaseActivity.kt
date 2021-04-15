@@ -8,12 +8,14 @@ import android.view.Window
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.gyf.immersionbar.ImmersionBar
 import com.mars.mvvm.base.R
 import com.mars.mvvm.common_utils.LogManger
 
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
 
     protected var mCtx: Context? = null
     val TAG: String by lazy {
@@ -21,11 +23,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
     var contentFl: FrameLayout? = null
     var statusView: View? = null
+    var dataBinding: VB? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mCtx = this
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.activity_base)
+        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_base)
         statusView = findViewById(R.id.statusView)
         contentFl = findViewById(R.id.contentFl)
         contentFl!!.removeAllViews()
@@ -45,15 +48,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
     /**
      * 获取当前页面的布局资源ID
      *
      * @return 布局资源ID
      */
-    protected abstract fun getLayoutResId(savedInstanceState: Bundle?): Int
+    abstract fun getLayoutResId(savedInstanceState: Bundle?): Int
 
     /**
      * 初始化控件

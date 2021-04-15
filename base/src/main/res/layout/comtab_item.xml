@@ -7,8 +7,8 @@
         <variable
             name="maintab"
             type="com.mars.mvvm.base.bean.ComTabItemBean" />
+        <import type="androidx.core.content.ContextCompat" />
 
-        <import type="com.mars.mvvm.common_utils.ResourceUtils" />
     </data>
 
     <RelativeLayout
@@ -24,11 +24,11 @@
             android:drawablePadding="@dimen/dp2"
             android:gravity="center"
             android:text="@{maintab.text??maintab.text}"
-            android:textColor="@{ResourceUtils.getColor(context,maintab.textColor)}"
+            android:textColor="@{ContextCompat.getColor(context,maintab.textColor)}"
             android:textSize="@dimen/sp10"
             app:icon_direction="top"
+            app:icon_src_normal="@{maintab.rid}"
             app:icon_height="@dimen/dp20"
-
             app:icon_width="@dimen/dp20" />
     </RelativeLayout>
 </layout>

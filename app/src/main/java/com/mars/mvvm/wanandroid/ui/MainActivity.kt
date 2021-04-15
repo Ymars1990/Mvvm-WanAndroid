@@ -12,6 +12,7 @@ import com.gyf.immersionbar.ktx.immersionBar
 import com.mars.mvvm.base.adapter.ComTabItemAdapter
 import com.mars.mvvm.base.adapter.ComViewPagerAdapter
 import com.mars.mvvm.base.bean.ComTabItemBean
+import com.mars.mvvm.base.databinding.ActivityBaseBinding
 import com.mars.mvvm.base.interfacer.RvOnClickCallBacker
 import com.mars.mvvm.base.ui.BaseActivity
 import com.mars.mvvm.business.ui.fragment.HomeFragment
@@ -22,7 +23,7 @@ import com.mars.mvvm.common_utils.LogManger
 import com.mars.mvvm.component.view.DrawableTextView
 import com.mars.mvvm.wanandroid.R
 
-class MainActivity : BaseActivity(), RvOnClickCallBacker<ComTabItemBean>,
+class MainActivity : BaseActivity<ActivityBaseBinding>(), RvOnClickCallBacker<ComTabItemBean>,
     ViewPager.OnPageChangeListener {
     var tabs: ArrayList<ComTabItemBean>? = null
     private val fragments: SparseArray<Fragment> = SparseArray()

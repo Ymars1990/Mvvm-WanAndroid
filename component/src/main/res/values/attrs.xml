@@ -209,9 +209,9 @@
         <attr name="text_color_unable" format="color" />
 
         <!--图标资源-->
-        <attr name="icon_src_normal" format="reference" />
-        <attr name="icon_src_pressed" format="reference" />
-        <attr name="icon_src_unable" format="reference" />
+        <attr name="icon_src_normal" format="reference|color" />
+        <attr name="icon_src_pressed" format="reference|color" />
+        <attr name="icon_src_unable" format="reference|color" />
 
         <!--图标、大小、位置-->
         <attr name="icon_height" format="dimension" />

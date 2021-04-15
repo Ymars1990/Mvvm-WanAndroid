@@ -850,6 +850,7 @@ class DrawableTextView @JvmOverloads constructor(
         const val ICON_DIR_TOP = 2
         const val ICON_DIR_RIGHT = 3
         const val ICON_DIR_BOTTOM = 4
+
     }
 
     init {
@@ -857,4 +858,7 @@ class DrawableTextView @JvmOverloads constructor(
         mGestureDetector = GestureDetector(mContext, SimpleOnGesture())
         initAttributeSet(mContext, attrs)
     }
+
+
+
 }
